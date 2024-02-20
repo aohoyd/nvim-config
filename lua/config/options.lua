@@ -12,3 +12,8 @@ vim.opt.showtabline = 0
 vim.opt.guifont = "Mono Lisa:16"
 
 vim.g.neovide_input_macos_alt_is_meta = true
+
+-- Change background to 'light' because of onedark theme
+if vim.g.neovide then
+  vim.o.background = "light"
+end

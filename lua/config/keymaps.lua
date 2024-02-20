@@ -82,7 +82,9 @@ end
 local function send_lines(dir, keep)
   local pos = get_selection()
 
-  if not keep and (dir < 0 and pos.top_row == 1) or (dir > 0 and pos.bottom_row == vim.api.nvim_buf_line_count(0)) then
+  if
+    not keep and ((dir < 0 and pos.top_row == 1) or (dir > 0 and pos.bottom_row == vim.api.nvim_buf_line_count(0)))
+  then
     return
   end
 
@@ -110,3 +112,10 @@ vim.keymap.set({ "n", "i", "v" }, "<D-q>", "<cmd>qall<cr>")
 
 -- Comment
 vim.keymap.set({ "n", "i", "v" }, "<D-/>", "<cmd>normal gcc<cr>")
+
+-- Select
+vim.keymap.set({ "n", "i" }, "<D-a>", "<cmd>normal ggVG<cr>")
+
+-- Buffers
+vim.keymap.set({ "n", "v", "i" }, "<C-Tab>", "<cmd>bp<cr>")
+vim.keymap.set({ "n", "v", "i" }, "<C-S-Tab>", "<cmd>bn<cr>")
