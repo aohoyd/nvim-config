@@ -17,3 +17,5 @@ vim.g.neovide_input_macos_alt_is_meta = true
 if vim.g.neovide then
   vim.o.background = "light"
 end
+
+vim.o.shell = "fish"

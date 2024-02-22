@@ -19,6 +19,17 @@ vim.keymap.set({ "n", "v", "i" }, "¬", function()
   vim.wo.list = not vim.wo.list
 end, { silent = true })
 
+-- Telescope
+local function telescope_browse_cwd()
+  local cwd = vim.loop.cwd()
+  vim.cmd("Telescope file_browser path=" .. cwd)
+end
+
+vim.keymap.set("n", "<leader>fl", function()
+  vim.cmd("BrootProjectDir")
+end, { desc = "Broot (root dir)" })
+vim.keymap.set({ "n", "i", "v" }, "<D-l>", telescope_browse_cwd)
+
 -- Save
 vim.keymap.set({ "n", "i" }, "<D-s>", "<cmd>w<cr>", { silent = true }) -- Save
 
